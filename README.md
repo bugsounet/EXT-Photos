@@ -9,7 +9,7 @@ It can be controled with notifications
 
 ## Installation / update / configuration
 
-Read the docs in [wiki](https://wiki.bugsounet.fr/EXT-Browser)
+Read the docs in [wiki](https://wiki.bugsounet.fr/EXT-Photos)
 
 ## Support and Helping
 New forum and support for all @bugsounet modules is now localized [there](https://forum.bugsounet.fr) !
