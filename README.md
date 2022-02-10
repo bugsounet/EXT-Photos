@@ -1,11 +1,11 @@
-# EXT-Browser - Extented for `MMM-GoogleAssistant` v4.x
+# EXT-Photos - Extented for `MMM-GoogleAssistant` v4.x
 
-EXT-Browser is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror) project by [Michael Teeuw](https://github.com/MichMich).<br>
+EXT-Photos is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror) project by [Michael Teeuw](https://github.com/MichMich).<br>
 
-It allows to display URL in fullscreen for `MagicMirror`
+It allows to photos URL in fullscreen for `MagicMirror`
 
 This module is an Extented for `MMM-GoogleAssistant` v4.x, you can naturally use it as a simple module !<br>
-It can be controled with notifications or with your voice
+It can be controled with notifications
 
 ## Installation / update / configuration
 
