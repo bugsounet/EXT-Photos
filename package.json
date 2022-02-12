@@ -1,9 +1,9 @@
 {
-  "name": "EXT-Browser",
+  "name": "EXT-Photos",
   "version": "1.0.0",
-  "rev": "220209",
-  "description": "An embedded Browser on MagicMirror.",
-  "main": "EXT-Browser.js",
+  "rev": "220212",
+  "description": "An embedded Photos displayer on MagicMirror.",
+  "main": "EXT-Photos.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh",
     "postinstall": "installer/postinstall.sh"
@@ -11,7 +11,7 @@
   "keywords": [
     "magic mirror",
     "module",
-    "browser"
+    "photos"
   ],
   "author": "bugsounet",
   "license": "MIT",
@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bugsounet/EXT-Browser"
+    "url": "https://github.com/bugsounet/EXT-Photos"
   },
-  "homepage": "https://wiki.bugsounet.fr/en/EXT-Browser"
+  "homepage": "https://wiki.bugsounet.fr/en/EXT-Photos"
 }
