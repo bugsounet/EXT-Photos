@@ -87,6 +87,7 @@ Module.register("EXT-Photos", {
   preparePopup: function() {
     var Photos = document.createElement("div")
     Photos.id = "EXT_PHOTOS"
+    Photos.classList.add("hidden")
     var backPhoto = document.createElement("div")
     backPhoto.id = "EXT_PHOTOS_BACK"
     var currentPhoto = document.createElement("div")
