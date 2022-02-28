@@ -1,12 +1,13 @@
 {
   "name": "EXT-Photos",
   "version": "1.0.0",
-  "rev": "220212",
+  "rev": "220228",
   "description": "An embedded Photos displayer on MagicMirror.",
   "main": "EXT-Photos.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh",
-    "postinstall": "installer/postinstall.sh"
+    "postinstall": "installer/postinstall.sh",
+    "update": "installer/update.sh"
   },
   "keywords": [
     "magic mirror",

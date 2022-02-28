@@ -11,6 +11,7 @@ Module.register("EXT-Photos", {
   defaults: {
     debug: false,
     displayDelay: 20 * 1000,
+    loop: false
   },
 
   start: function () {
@@ -48,6 +49,8 @@ Module.register("EXT-Photos", {
       case "DOM_OBJECTS_CREATED":
         this.preparePopup()
         this.sendSocketNotification("INIT")
+        break
+      case "GA_READY":
         this.sendNotification("EXT_HELLO", this.name)
         break
       case "EXT_PHOTOS-OPEN":
@@ -76,7 +79,6 @@ Module.register("EXT-Photos", {
           this.endPhotos(true)
         }
         break
-       
     }
   },
 
@@ -130,7 +132,7 @@ Module.register("EXT-Photos", {
   },
 
   hidePhotos: function () {
-    logBrowser("Hide Photos Iframe")
+    logPhotos("Hide Photos Iframe")
     var iframe = document.getElementById("EXT_PHOTOS")
     iframe.classList.add("hidden")
   },
@@ -180,8 +182,13 @@ Module.register("EXT-Photos", {
 
   photoNext: function () {
     if (this.photos.position >= (this.photos.length-1)) {
-      this.resetPhotos()
-      this.endPhotos(true)
+      if (this.config.loop) {
+        this.photos.position = 0
+        this.photoDisplay()
+      } else {
+        this.resetPhotos()
+        this.endPhotos(true)
+      }
     } else {
       this.photos.position++
       this.photoDisplay()
