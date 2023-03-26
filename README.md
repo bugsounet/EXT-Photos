@@ -1,11 +1,9 @@
-# EXT-Photos - Extented for `MMM-GoogleAssistant` v5.x
+# EXT-Photos - Extented for `MMM-GoogleAssistant`
 
-EXT-Photos is a module for the [MagicMirror](https://github.com/MichMich/MagicMirror) project by [Michael Teeuw](https://github.com/MichMich).<br>
 
-It allows to photos URL in fullscreen for `MagicMirror`
+It allows to display photos URL in fullscreen
 
-This module is an Extented for `MMM-GoogleAssistant` v5.x, you can naturally use it as a simple module !<br>
-It can be controled with notifications
+This plugin is an Extented plugin for `MMM-GoogleAssistant`<br>
 
 ## Installation / update / configuration
 
