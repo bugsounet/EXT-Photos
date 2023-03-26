@@ -1,7 +1,7 @@
 /**
  ** Module : EXT-Photos
  ** @bugsounet
- ** ©02-2022
+ ** ©03-2023
  ** support: https://forum.bugsounet.fr
  **/
 
@@ -23,6 +23,7 @@ Module.register("EXT-Photos", {
       running: false
     }
     this.timerPhoto = null
+    this.ready = false
   },
 
   getDom: function() {
@@ -32,9 +33,7 @@ Module.register("EXT-Photos", {
   },
 
   getStyles: function () {
-    return [
-      "EXT-Photos.css"
-    ]
+    return [ "EXT-Photos.css" ]
   },
 
   getTranslations: function() {
@@ -45,14 +44,17 @@ Module.register("EXT-Photos", {
   },
 
   notificationReceived: function(noti, payload, sender) {
-    switch(noti) {
-      case "DOM_OBJECTS_CREATED":
-        this.preparePopup()
+    if (noti == "GW_READY") {
+      if (sender.name == "Gateway") {
         this.sendSocketNotification("INIT")
-        break
-      case "GAv5_READY":
-        if (sender.name == "MMM-GoogleAssistant") this.sendNotification("EXT_HELLO", this.name)
-        break
+        this.preparePopup()
+        this.ready = true
+        this.sendNotification("EXT_HELLO", this.name)
+      }
+    }
+    if (!this.ready) return
+
+    switch(noti) {
       case "EXT_PHOTOS-OPEN":
         logPhotos("Received:", payload)
         if (!payload || !payload.length) {
