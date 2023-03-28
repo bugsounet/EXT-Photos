@@ -1,7 +1,6 @@
 "use strict"
 
 var NodeHelper = require("node_helper")
-var log = (...args) => { /* do nothing */ }
 
 module.exports = NodeHelper.create({
   socketNotificationReceived: function (noti, payload) {
