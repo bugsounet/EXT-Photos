@@ -1,7 +1,7 @@
 {
   "name": "EXT-Photos",
   "version": "1.2.0",
-  "rev": "240000",
+  "rev": "240103",
   "description": "An embedded Photos displayer on MagicMirror.",
   "main": "EXT-Photos.js",
   "scripts": {
