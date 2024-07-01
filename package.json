@@ -1,12 +1,12 @@
 {
   "name": "EXT-Photos",
-  "version": "1.3.0",
-  "rev": "240302",
+  "version": "1.4.0",
+  "rev": "240701",
   "description": "An embedded Photos displayer on MagicMirror.",
   "main": "EXT-Photos.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh",
-    "postinstall": "installer/postinstall.sh -m -b",
+    "postinstall": "installer/postinstall.sh -m",
     "update": "installer/update.sh",
     "reset": "git reset --hard",
     "clean": "rm -rf node_modules package-lock.json",
@@ -24,7 +24,7 @@
   "author": "bugsounet",
   "license": "MIT",
   "bugs": {
-    "url": "https://forum.bugsounet.fr"
+    "url": "https://github.com/bugsounet/EXT-Photos/issues"
   },
   "repository": {
     "type": "git",
@@ -32,15 +32,15 @@
   },
   "homepage": "https://wiki.bugsounet.fr/en/EXT-Photos",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "dependencies": {
-    "esbuild": "^0.20.1",
-    "glob": "^10.3.10"
+    "esbuild": "^0.22.0",
+    "glob": "^10.4.2"
   },
   "devDependencies": {
     "@eslint/js": "^8.57.0",
-    "@stylistic/eslint-plugin": "^1.6.3",
+    "@stylistic/eslint-plugin": "^1.8.1",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1"
   }
