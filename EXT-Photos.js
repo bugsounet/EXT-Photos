@@ -58,7 +58,7 @@ Module.register("EXT-Photos", {
       case "EXT_PHOTOS-OPEN":
         logPhotos("Received:", payload);
         if (!payload || !payload.length) {
-          this.sendNotification("EXT_ALERT", {
+          this.sendNotification("GA_ALERT", {
             message: this.translate("PhotosError"),
             type: "error"
           });
@@ -105,7 +105,7 @@ Module.register("EXT-Photos", {
   },
 
   startPhotos () {
-    if (!this.photos.running) this.sendNotification("EXT_ALERT", {
+    if (!this.photos.running) this.sendNotification("GA_ALERT", {
       message: this.translate("PhotosOpen"),
       type: "information",
       icon: "modules/EXT-Photos/resources/Photos-Logo.png"
@@ -117,7 +117,7 @@ Module.register("EXT-Photos", {
   },
 
   endPhotos (extAlert=false) {
-    if (extAlert) this.sendNotification("EXT_ALERT", {
+    if (extAlert) this.sendNotification("GA_ALERT", {
       message: this.translate("PhotosClose"),
       type: "information",
       icon: "modules/EXT-Photos/resources/Photos-Logo.png"
@@ -157,7 +157,7 @@ Module.register("EXT-Photos", {
     logPhotos(`Loading photo #${this.photos.position}/${this.photos.length-1}`);
     var hidden = document.createElement("img");
     hidden.onerror = () => {
-      this.sendNotification("EXT_ALERT", {
+      this.sendNotification("GA_ALERT", {
         message: this.translate("PhotosError"),
         type: "warning",
         icon: "modules/EXT-Photos/resources/Photos-Logo.png"
