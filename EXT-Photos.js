@@ -5,7 +5,7 @@
  ** support: https://forum.bugsounet.fr
  **/
 
-logPhotos = (...args) => { /* do nothing */ };
+var logPhotos = () => { /* do nothing */ };
 
 Module.register("EXT-Photos", {
   defaults: {
@@ -16,7 +16,7 @@ Module.register("EXT-Photos", {
 
   start () {
     if (this.config.debug) logPhotos = (...args) => { console.log("[PHOTOS]", ...args); };
-    this.photos= {
+    this.photos = {
       position: 0,
       urls: [],
       length: 0,
@@ -33,7 +33,7 @@ Module.register("EXT-Photos", {
   },
 
   getStyles () {
-    return [ "EXT-Photos.css" ];
+    return ["EXT-Photos.css"];
   },
 
   getTranslations () {
@@ -54,7 +54,7 @@ Module.register("EXT-Photos", {
     }
     if (!this.ready) return;
 
-    switch(noti) {
+    switch (noti) {
       case "EXT_PHOTOS-OPEN":
         logPhotos("Received:", payload);
         if (!payload || !payload.length) {
@@ -96,7 +96,7 @@ Module.register("EXT-Photos", {
     backPhoto.id = "EXT_PHOTOS_BACK";
     var currentPhoto = document.createElement("div");
     currentPhoto.id = "EXT_PHOTOS_CURRENT";
-    currentPhoto.addEventListener("animationend", ()=>{
+    currentPhoto.addEventListener("animationend", () => {
       currentPhoto.classList.remove("animated");
     });
     Photos.appendChild(backPhoto);
@@ -116,7 +116,7 @@ Module.register("EXT-Photos", {
     this.photoDisplay();
   },
 
-  endPhotos (extAlert=false) {
+  endPhotos (extAlert = false) {
     if (extAlert) this.sendNotification("GA_ALERT", {
       message: this.translate("PhotosClose"),
       type: "information",
@@ -140,13 +140,13 @@ Module.register("EXT-Photos", {
   },
 
   hideModules () {
-    MM.getModules().enumerate((module)=> {
+    MM.getModules().enumerate((module) => {
       module.hide(100, { lockString: "EXT_PHOTOS-LOCKED" });
     });
   },
 
   showModules () {
-    MM.getModules().enumerate((module)=> {
+    MM.getModules().enumerate((module) => {
       module.show(100, { lockString: "EXT_PHOTOS-LOCKED" });
     });
   },
@@ -154,7 +154,7 @@ Module.register("EXT-Photos", {
   /** photos code **/
   photoDisplay () {
     this.photos.running = true;
-    logPhotos(`Loading photo #${this.photos.position}/${this.photos.length-1}`);
+    logPhotos(`Loading photo #${this.photos.position}/${this.photos.length - 1}`);
     var hidden = document.createElement("img");
     hidden.onerror = () => {
       this.sendNotification("GA_ALERT", {
@@ -170,12 +170,11 @@ Module.register("EXT-Photos", {
     hidden.onload = () => {
       var back = document.getElementById("EXT_PHOTOS_BACK");
       var current = document.getElementById("EXT_PHOTOS_CURRENT");
-      var dom = document.getElementById("EXT_PHOTOS");
       logPhotos("URL=", this.photos.urls[this.photos.position]);
       back.style.backgroundImage = `url(${this.photos.urls[this.photos.position]})`;
       current.style.backgroundImage = `url(${this.photos.urls[this.photos.position]})`;
       current.classList.add("animated");
-      this.timerPhoto = setTimeout( () => {
+      this.timerPhoto = setTimeout(() => {
         this.photoNext();
       }, this.config.displayDelay);
     };
@@ -183,7 +182,7 @@ Module.register("EXT-Photos", {
   },
 
   photoNext () {
-    if (this.photos.position >= (this.photos.length-1)) {
+    if (this.photos.position >= (this.photos.length - 1)) {
       if (this.config.loop) {
         this.photos.position = 0;
         this.photoDisplay();
@@ -202,7 +201,7 @@ Module.register("EXT-Photos", {
     var current = document.getElementById("EXT_PHOTOS_CURRENT");
     clearTimeout(this.timerPhoto);
     this.timerPhoto = null;
-    this.photos= {
+    this.photos = {
       position: 0,
       urls: [],
       length: 0,
